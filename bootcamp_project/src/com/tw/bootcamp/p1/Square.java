@@ -6,12 +6,10 @@ public class Square implements Polygon{
         this.side = side;
     }
 
-
     @Override
     public Double area() {
         return side*side;
     }
-
     @Override
     public Double perimeter() {
         return 4*side;
