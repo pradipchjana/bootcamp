@@ -20,6 +20,22 @@ public class Chance {
         return new Chance(1- chance);
     }
 
+    public Chance and(Chance otherChance){
+        return new Chance(multiply(otherChance));
+    }
+
+    private double multiply(Chance otherChance) {
+        return this.chance * otherChance.chance;
+    }
+
+    public Chance or(Chance otherChance) {
+     return new Chance(add(otherChance) - multiply(otherChance));
+    }
+
+    private double add(Chance otherChance) {
+        return this.chance + otherChance.chance;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -31,4 +47,6 @@ public class Chance {
     public int hashCode() {
         return Objects.hashCode(chance);
     }
+
+
 }

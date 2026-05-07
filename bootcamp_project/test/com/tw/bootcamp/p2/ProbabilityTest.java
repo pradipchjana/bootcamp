@@ -19,8 +19,9 @@ class ProbabilityTest {
 
     @Test
     void shouldProbabilityOfNotGettingTailInTwoCoins(){
-        Chance probability = Chance.createChance(0.75);
-        assertEquals(Chance.createChance(0.75),probability);
+        Chance chance = Chance.createChance(0.5);
+        Chance otherChance = Chance.createChance(0.5);
+        assertEquals(Chance.createChance(0.25),chance.and(otherChance));
     }
 
     @Test
@@ -28,6 +29,13 @@ class ProbabilityTest {
         Chance probability = Chance.createChance(0.167);
         assertEquals(Chance.createChance(0.75),probability);
     }
+    @Test
+    void shouldProbabilityOfGettingAtleastOneTailInTwoCoins(){
+        Chance chance = Chance.createChance(0.5);
+        Chance otherChance = Chance.createChance(0.5);
+        assertEquals(Chance.createChance(0.75),chance.or(otherChance));
+    }
+
     @Test
     void shouldThrowError(){
         assertThrows(IllegalArgumentException.class,() -> Chance.createChance(-0.167),"Chance always be 0-1");
