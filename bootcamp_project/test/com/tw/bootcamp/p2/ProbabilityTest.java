@@ -8,25 +8,25 @@ class ProbabilityTest {
  @Test
     void shouldProbabilityOfGettingTail(){
      Chance chanceOfGettingTail = Chance.createChance(0.5);
-     assertEquals(0.5,chanceOfGettingTail.get(),0.0);
+     assertEquals(Chance.createChance(0.5),chanceOfGettingTail);
  }
 
     @Test
     void shouldProbabilityOfNotGettingTail(){
         Chance chanceOfGettingTail = Chance.createChance(0.5);
-        assertEquals(0.5,chanceOfGettingTail.not().get(),0.0);
+        assertEquals(Chance.createChance(0.5),chanceOfGettingTail.not());
     }
 
     @Test
     void shouldProbabilityOfNotGettingTailInTwoCoins(){
         Chance probability = Chance.createChance(0.75);
-        assertEquals(0.75,probability.get(),0.0);
+        assertEquals(Chance.createChance(0.75),probability);
     }
 
     @Test
     void shouldProbabilityOfGettingThreeInCube(){
         Chance probability = Chance.createChance(0.167);
-        assertEquals(0.167,probability.get(),0.0);
+        assertEquals(Chance.createChance(0.75),probability);
     }
     @Test
     void shouldThrowError(){
