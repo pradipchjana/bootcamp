@@ -7,19 +7,29 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProbabilityTest {
  @Test
     void shouldProbabilityOfGettingTail(){
-     Chance chanceOfGettingTail = new Chance(0.5);
-     assertEquals(0.5,chanceOfGettingTail.getChance(),0.0);
+     Chance chanceOfGettingTail = Chance.createChance(0.5);
+     assertEquals(0.5,chanceOfGettingTail.get(),0.0);
  }
 
     @Test
     void shouldProbabilityOfNotGettingTail(){
-        Chance chanceOfGettingTail = new Chance(0.5);
-        assertEquals(0.5,chanceOfGettingTail.notGetting(),0.0);
+        Chance chanceOfGettingTail = Chance.createChance(0.5);
+        assertEquals(0.5,chanceOfGettingTail.not(),0.0);
     }
 
     @Test
     void shouldProbabilityOfNotGettingTailInTwoCoins(){
-        Chance probability = new Chance(0.75);
-        assertEquals(0.75,probability.getChance(),0.0);
+        Chance probability = Chance.createChance(0.75);
+        assertEquals(0.75,probability.get(),0.0);
+    }
+
+    @Test
+    void shouldProbabilityOfGettingThreeInCube(){
+        Chance probability = Chance.createChance(0.167);
+        assertEquals(0.167,probability.get(),0.0);
+    }
+    @Test
+    void shouldThrowError(){
+        assertThrows(IllegalArgumentException.class,() -> Chance.createChance(-0.167),"Chance always be 0-1");
     }
 }
