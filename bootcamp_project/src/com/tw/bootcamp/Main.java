@@ -1,6 +1,9 @@
-import com.tw.bootcamp.p1.Rectangle;
+package com.tw.bootcamp;
 
-class Main{
+import com.tw.bootcamp.p1.Rectangle;
+import com.tw.bootcamp.p2.CoinFlip;
+
+public class Main{
     static void main() {
         Rectangle rectangle = Rectangle.createRectangle(2.0, 5.0);
         Double areaOfRect = rectangle.area();
