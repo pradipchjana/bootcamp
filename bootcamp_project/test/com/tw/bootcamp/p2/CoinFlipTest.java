@@ -10,4 +10,10 @@ class CoinFlipTest {
      CoinFlip coinFlip = new CoinFlip();
      assertEquals(0.5,coinFlip.probabilityOfTail(),0.0);
  }
+
+    @Test
+    void shouldProbabilityOfNotGettingTail(){
+        CoinFlip coinFlip = new CoinFlip();
+        assertEquals(0.5,coinFlip.probabilityOfNotGettingTail(),0.0);
+    }
 }
