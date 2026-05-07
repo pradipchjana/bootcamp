@@ -12,7 +12,7 @@ class RectangleTest {
         assertEquals(10.0,rectangle.area(),0.01);
     }
     @Test
-    void perimeter(){
+    void shouldReturnPerimeterOfRectangle(){
         Rectangle rectangle = new Rectangle(2.0, 3.0);
         assertEquals(10.0,rectangle.perimeter(),0.01);
     }

@@ -1,6 +1,6 @@
 package com.tw.bootcamp.p1;
 
-public class Rectangle{
+public class Rectangle implements Polygon {
     private final Double length;
     private final Double width;
 
@@ -9,11 +9,13 @@ public class Rectangle{
         this.width = width;
     }
 
+    @Override
     public Double area(){
         return length * width;
     }
 
-    public double perimeter() {
+    @Override
+    public Double perimeter() {
         return 2*(length+width);
     }
 }
