@@ -7,7 +7,7 @@ public class Chance {
         this.chance = chance;
     }
 
-    public static Chance createChance(Double chance) {
+    public static Chance createChance(Double chance) throws IllegalArgumentException {
         if (chance > 1 || chance < 0){
             throw new IllegalArgumentException("Chance always be 0-1");
         }
@@ -18,7 +18,7 @@ public class Chance {
         return chance;
     }
 
-    public Double not(){
-        return 1- chance;
+    public Chance not(){
+        return new Chance(1- chance);
     }
 }

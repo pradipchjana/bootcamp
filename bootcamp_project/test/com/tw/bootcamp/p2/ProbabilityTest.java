@@ -14,7 +14,7 @@ class ProbabilityTest {
     @Test
     void shouldProbabilityOfNotGettingTail(){
         Chance chanceOfGettingTail = Chance.createChance(0.5);
-        assertEquals(0.5,chanceOfGettingTail.not(),0.0);
+        assertEquals(0.5,chanceOfGettingTail.not().get(),0.0);
     }
 
     @Test
