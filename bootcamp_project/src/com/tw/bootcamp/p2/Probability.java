@@ -9,19 +9,20 @@ public class Probability {
         this.chance = chance;
     }
 
-    public static Probability createChance(Double chance) throws IllegalArgumentException {
+
+    public static Probability createProbability(Double chance) throws ImpossibleProbabilityCreationException {
         if (chance > 1 || chance < 0){
-            throw new IllegalArgumentException("Chance always be 0-1");
+            throw new ImpossibleProbabilityCreationException("Chance always be 0-1");
         }
         return new Probability(chance);
     }
 
     public Probability not(){
-        return new Probability(1- chance);
+        return createProbability(1 - chance);
     }
 
     public Probability and(Probability otherChance){
-        return new Probability(multiply(otherChance));
+        return createProbability(multiply(otherChance));
     }
 
     private double multiply(Probability otherChance) {
@@ -29,7 +30,8 @@ public class Probability {
     }
 
     public Probability or(Probability otherChance) {
-     return new Probability(add(otherChance) - multiply(otherChance));
+     return createProbability(add(otherChance) - multiply(otherChance));
+//        return  this.not().and(otherChance.not()).not();
     }
 
     private double add(Probability otherChance) {
@@ -47,6 +49,4 @@ public class Probability {
     public int hashCode() {
         return Objects.hashCode(chance);
     }
-
-
 }

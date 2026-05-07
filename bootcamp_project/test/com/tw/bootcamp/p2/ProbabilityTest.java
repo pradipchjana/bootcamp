@@ -7,37 +7,37 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProbabilityTest {
  @Test
     void shouldProbabilityOfGettingTail(){
-     Probability chanceOfGettingTail = Probability.createChance(0.5);
-     assertEquals(Probability.createChance(0.5),chanceOfGettingTail);
+     Probability chanceOfGettingTail = Probability.createProbability(0.5);
+     assertEquals(Probability.createProbability(0.5),chanceOfGettingTail);
  }
 
     @Test
     void shouldProbabilityOfNotGettingTail(){
-        Probability chanceOfGettingTail = Probability.createChance(0.5);
-        assertEquals(Probability.createChance(0.5),chanceOfGettingTail.not());
+        Probability chanceOfGettingTail = Probability.createProbability(0.5);
+        assertEquals(Probability.createProbability(0.5),chanceOfGettingTail.not());
     }
 
     @Test
     void shouldProbabilityOfNotGettingTailInTwoCoins(){
-        Probability chance = Probability.createChance(0.5);
-        Probability otherChance = Probability.createChance(0.5);
-        assertEquals(Probability.createChance(0.25),chance.and(otherChance));
+        Probability chance = Probability.createProbability(0.5);
+        Probability otherChance = Probability.createProbability(0.5);
+        assertEquals(Probability.createProbability(0.25),chance.and(otherChance));
     }
 
     @Test
     void shouldProbabilityOfGettingThreeInCube(){
-        Probability probability = Probability.createChance(0.167);
-        assertEquals(Probability.createChance(0.75),probability);
-    }
-    @Test
-    void shouldProbabilityOfGettingAtleastOneTailInTwoCoins(){
-        Probability chance = Probability.createChance(0.5);
-        Probability otherChance = Probability.createChance(0.5);
-        assertEquals(Probability.createChance(0.75),chance.or(otherChance));
+        Probability probability = Probability.createProbability(0.167);
+        assertEquals(Probability.createProbability(0.167),probability);
     }
 
     @Test
+    void shouldProbabilityOfGettingLeastOneTailInTwoCoins(){
+        Probability chance = Probability.createProbability(0.5);
+        Probability otherChance = Probability.createProbability(0.5);
+        assertEquals(Probability.createProbability(0.75),chance.or(otherChance));
+    }
+    @Test
     void shouldThrowError(){
-        assertThrows(IllegalArgumentException.class,() -> Probability.createChance(-0.167),"Chance always be 0-1");
+        assertThrows(ImpossibleProbabilityCreationException.class,() -> Probability.createProbability(-0.167),"Chance always be 0-1");
     }
 }
