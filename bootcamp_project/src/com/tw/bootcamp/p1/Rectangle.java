@@ -1,20 +1,26 @@
 package com.tw.bootcamp.p1;
 
-public class Rectangle implements Polygon {
+public class Rectangle  {
     private final Double length;
     private final Double width;
 
-    public Rectangle(Double length, Double width) {
+     private Rectangle(Double length, Double width) {
         this.length = length;
         this.width = width;
     }
 
-    @Override
+    public static Rectangle createRectangle(Double length, Double width) {
+        return new Rectangle(length, width);
+    }
+
+    public static Rectangle createSquare(Double side) {
+        return createRectangle(side,side);
+    }
+
     public Double area(){
         return length * width;
     }
 
-    @Override
     public Double perimeter() {
         return 2*(length+width);
     }
