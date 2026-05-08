@@ -36,13 +36,13 @@ public class Length {
         return toMeter() - length.toMeter() < 0.00001;
     }
 
-    public Double toMeter() {
+    public Double toMeter() throws IllegalUnitException{
         return switch (this.unit) {
             case "INCH" -> this.value * this.INCH_TO_METER;
             case "FEET" -> this.value * this.FEET_TO_METER;
             case "CM" -> this.value * this.CM_TO_METER;
 
-            default -> null;
+            default -> throw new IllegalUnitException("Invalid Unit");
         };
     }
 
