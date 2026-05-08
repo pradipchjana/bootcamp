@@ -20,7 +20,10 @@ class LengthTest {
     }
 
     @Test
-    void shouldThrowErrorForInValidUnit() {
-        assertThrows(IllegalUnitException.class,()->Length.createLength(5.0,"Something"));
+    void shouldReturnTrueFor1CentimeterAnd10Millimeter() {
+        Length centiMeter = Length.createCentiMeter(1.0);
+        Length milliMeter = Length.createMilliMeter(10.0);
+        assertEquals(centiMeter, milliMeter);
     }
+
 }
