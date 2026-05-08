@@ -1,0 +1,13 @@
+package com.tw.bootcamp.p3;
+
+public enum LengthUnit {
+    INCH(0.0254),FEET(0.3048),CM(0.01),MM(0.001);
+
+    private Double standardThreshold;
+    LengthUnit(Double standardThreshold){
+     this.standardThreshold =standardThreshold;
+    };
+    Double convertToBase(Double value){
+        return this.standardThreshold*value;
+    }
+}
