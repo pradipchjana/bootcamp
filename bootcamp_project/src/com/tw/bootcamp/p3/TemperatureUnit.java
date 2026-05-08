@@ -2,7 +2,7 @@ package com.tw.bootcamp.p3;
 
 import java.util.function.UnaryOperator;
 
-public enum TemperatureUnit {
+public enum TemperatureUnit implements Unit {
     CELSIUS((c)->c),
     KELVIN((k)->k-273),
     FAHRENHEIT((f)-> (f - 32) * 5.0/9 );
@@ -13,7 +13,8 @@ public enum TemperatureUnit {
         this.action = action;
     }
 
-    Double convertToBase(Double value) {
+    @Override
+    public Double convertToBase(Double value) {
         return this.action.apply(value);
     }
 }
