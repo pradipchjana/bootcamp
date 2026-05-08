@@ -9,28 +9,28 @@ public class Length {
     private  final Double INCH_TO_METER = 0.0254;
     private final Double FEET_TO_METER = 0.3048;
 
-    private Length(Double value,Unit unit) {
+    private Length(Double value, Unit unit) {
         this.value = value;
         this.unit = unit;
     }
 
-    public static Length createLength(Double value,Unit unit) {
+    public static Length createLength(Double value, Unit unit) {
         return new Length(value,unit);
     }
     public static Length createInch(Double value) {
-        return createLength(value,Unit.INCH);
+        return createLength(value, Unit.INCH);
     }
     public static Length createFeet(Double value) {
-        return createLength(value,Unit.FEET);
+        return createLength(value, Unit.FEET);
     }
 
     public static Length createCentiMeter(double value) {
-        return createLength(value,Unit.CM);
+        return createLength(value, Unit.CM);
 
     }
 
     public static Length createMilliMeter(double value) {
-        return createLength(value,Unit.MM);
+        return createLength(value, Unit.MM);
 
     }
 
