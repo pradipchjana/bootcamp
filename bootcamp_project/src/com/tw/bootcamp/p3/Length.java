@@ -16,12 +16,8 @@ public class Length {
 
     public Length add(Length length){
         Double total = this.value +length.value;
-        return createLength(total,LengthUnit.METER);
+        return createLength(total,LengthUnit.STANDARD);
     }
-
-//    public Double toType(LengthUnit unit){
-//        return unit.convertFromBase(this.value);
-//    }
 
     @Override
     public boolean equals(Object o) {
@@ -37,10 +33,4 @@ public class Length {
         return Objects.hashCode(value);
     }
 
-    @Override
-    public String toString() {
-        return "Length{" +
-                "value=" + value +
-                '}';
-    }
 }
