@@ -7,8 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class VolumeTest {
     @Test
     void shouldReturnTrueFor1FeetAnd12Inch() {
-        Volume gallon = Volume.createGallon(1.0);
-        Volume liters = Volume.createLiters(3.78);
+        Volume gallon = Volume.createVolume(1.0,VolumeUnit.GALLON);
+        Volume liters = Volume.createVolume(3.78,VolumeUnit.LITER);
         assertEquals(gallon, liters);
     }
 

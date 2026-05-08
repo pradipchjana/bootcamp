@@ -3,45 +3,44 @@ import java.util.Objects;
 
 public class Length {
     private final Double value;
-    private final LengthUnit unit;
 
 
-    private Length(Double value, LengthUnit unit) {
+    private Length(Double value) {
         this.value = value;
-        this.unit = unit;
+
     }
 
     public static Length createLength(Double value, LengthUnit unit) {
-        return new Length(value,unit);
-    }
-    public static Length createInch(Double value) {
-        return createLength(value, LengthUnit.INCH);
-    }
-    public static Length createFeet(Double value) {
-        return createLength(value, LengthUnit.FEET);
+        return new Length(unit.convertToBase(value));
     }
 
-    public static Length createCentiMeter(double value) {
-        return createLength(value, LengthUnit.CM);
-
+    public Length add(Length length){
+        Double total = this.value +length.value;
+        return createLength(total,LengthUnit.METER);
     }
 
-    public static Length createMilliMeter(double value) {
-        return createLength(value, LengthUnit.MM);
-
-    }
+//    public Double toType(LengthUnit unit){
+//        return unit.convertFromBase(this.value);
+//    }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Length length = (Length) o;
 
-        return unit.convertToBase(this.value) - length.unit.convertToBase(length.value) < 0.00001;
+        return Math.abs(this.value - length.value) < 0.001;
     }
 
 
     @Override
     public int hashCode() {
         return Objects.hashCode(value);
+    }
+
+    @Override
+    public String toString() {
+        return "Length{" +
+                "value=" + value +
+                '}';
     }
 }

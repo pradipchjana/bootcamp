@@ -11,16 +11,8 @@ public class Volume {
         this.unit = unit;
     }
 
-    public static Volume createGallon(double value) {
-        return createVolume(value, VolumeUnit.GALLON);
-    }
-
     public static Volume createVolume(Double value, VolumeUnit unit) {
         return new Volume(value, unit);
-    }
-
-    public static Volume createLiters(double value) {
-        return createVolume(value, VolumeUnit.LITER);
     }
 
     @Override
