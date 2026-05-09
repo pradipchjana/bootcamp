@@ -1,6 +1,7 @@
 package com.tw.bootcamp.p4;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ParkingLot {
     private final int size;
@@ -27,5 +28,17 @@ public class ParkingLot {
     public boolean isFull() {
         long totalCarCount = area.size();
         return totalCarCount == size;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        ParkingLot that = (ParkingLot) o;
+        return size == that.size && Objects.equals(area, that.area);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(size, area);
     }
 }

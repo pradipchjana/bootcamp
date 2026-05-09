@@ -28,6 +28,7 @@ class ParkingLotTest {
     void shouldReturnFalseIsLotISNotFull(){
         ParkingLot parkingLot = ParkingLot.createParkingLot(10);
         parkingLot.parkCar("c1");
+        parkingLot.parkCar("c1");
 
         assertFalse(parkingLot.isFull());
     }
