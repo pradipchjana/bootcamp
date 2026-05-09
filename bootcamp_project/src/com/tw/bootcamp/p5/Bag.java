@@ -12,10 +12,24 @@ public class Bag {
     public Bag(int capacity) {
         this.capacity = capacity;
     }
-    public boolean addBallToBag(Ball color){
+
+    public boolean addBallToBag(Ball color) throws OutOfLimitException{
+        if(isInLimit(color)){
         coloredBalls.compute(color,(_,v)->(v==null)?1:v+1);
         numberOfBalls++;
         return this.numberOfBalls < capacity;
+        }
+        throw new OutOfLimitException("Limit Extended");
+    }
+
+    private boolean isInLimit(Ball color){
+        int count = coloredBalls.getOrDefault(color,0);
+        return switch (color){
+            case GREEN -> count < 3;
+            case RED -> count < coloredBalls.getOrDefault(Ball.GREEN,1)*2;
+            case YELLOW -> count < (40 * numberOfBalls)/100;
+            default ->true;
+        };
     }
 
     @Override
